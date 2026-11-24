@@ -1,13 +1,13 @@
 #include <juce_gui_extra/juce_gui_extra.h>
 #include "MainComponent.h"
 
-class PatchSamplerPrototypeApplication : public juce::JUCEApplication
+class PatchSamplerApplication : public juce::JUCEApplication
 {
 public:
-    PatchSamplerPrototypeApplication() = default;
+    PatchSamplerApplication() = default;
 
-    const juce::String getApplicationName() override       { return "PatchSampler Prototype"; }
-    const juce::String getApplicationVersion() override    { return "1.0.1"; }
+    const juce::String getApplicationName() override       { return "PatchSampler"; }
+    const juce::String getApplicationVersion() override    { return "1.0.0"; }
     bool moreThanOneInstanceAllowed() override             { return true; }
 
     void initialise (const juce::String&) override
@@ -32,7 +32,7 @@ public:
     public:
         explicit MainWindow (juce::String name)
             : DocumentWindow (name,
-                              juce::Colour (0xff0f172a),
+                              juce::Colour (0xff0b0f19),
                               DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar (true);
@@ -61,4 +61,4 @@ private:
     std::unique_ptr<MainWindow> mainWindow;
 };
 
-START_JUCE_APPLICATION (PatchSamplerPrototypeApplication)
+START_JUCE_APPLICATION (PatchSamplerApplication)
