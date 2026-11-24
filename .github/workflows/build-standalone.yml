@@ -1,0 +1,26 @@
+name: Build PatchSampler Prototype v1.0.1 (Windows Standalone)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-windows-standalone:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: cmake -B build -G "Visual Studio 17 2022" -A x64
+
+      - name: Build Standalone App Release
+        run: cmake --build build --config Release --target PatchSamplerPrototype
+
+      - name: Upload Standalone EXE Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PatchSampler-Prototype-v1.0.1-Windows
+          path: build/PatchSamplerPrototype_artefacts/Release/PatchSampler Prototype.exe
