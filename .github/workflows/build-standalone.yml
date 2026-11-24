@@ -1,4 +1,4 @@
-name: Build PatchSampler Prototype v1.0.1 (Windows Standalone)
+name: Build PatchSampler v1.0.0 (Windows Full Standalone)
 
 on:
   push:
@@ -16,11 +16,11 @@ jobs:
       - name: Configure CMake
         run: cmake -B build -A x64
 
-      - name: Build Standalone App Release
-        run: cmake --build build --config Release --target PatchSamplerPrototype
+      - name: Build PatchSampler Release
+        run: cmake --build build --config Release --target PatchSampler
 
-      - name: Upload Standalone EXE Artifact
+      - name: Upload PatchSampler EXE
         uses: actions/upload-artifact@v4
         with:
-          name: PatchSampler-Prototype-v1.0.1-Windows
-          path: build/PatchSamplerPrototype_artefacts/Release/PatchSampler Prototype.exe
+          name: PatchSampler-v1.0.0-Windows
+          path: build/PatchSampler_artefacts/Release/PatchSampler.exe
